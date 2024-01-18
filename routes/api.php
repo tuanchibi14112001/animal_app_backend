@@ -28,6 +28,7 @@ Route::prefix('animal_type')->group(function () {
 
 Route::prefix('animal_family')->group(function () {
     Route::get('/', [AnimalFamilyController::class, 'getAll']);
+    Route::get('/{id}', [AnimalFamilyController::class, 'getAnimalBreeds']);
 });
 
 Route::prefix('animal_species')->group(function () {
