@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnimalFamilyController;
 use App\Http\Controllers\AnimalSpeciesController;
 use App\Http\Controllers\AnimalTypeController;
+use App\Http\Controllers\PlayController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -33,4 +34,8 @@ Route::prefix('animal_family')->group(function () {
 
 Route::prefix('animal_species')->group(function () {
     Route::get('/', [AnimalSpeciesController::class, 'getAll']);
+});
+
+Route::prefix('play')->group(function () {
+    Route::get('/', [PlayController::class, 'playGameController']);
 });
