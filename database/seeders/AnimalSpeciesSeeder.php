@@ -86,6 +86,26 @@ class AnimalSpeciesSeeder extends Seeder
                 'comments' => 'Deer mice have round and slender bodies. The head has a pointed nose with large, black, beady eyes. The ears are large and have little fur covering them',
                 'img_url' => '7.jpg',
             ],
+            [
+                'animal_family_id' => 4,
+                'name' => 'Abacot Ranger',
+                'animal_length' => '56 to 71 cm',
+                'animal_tail' => '20-24 cm',
+                'animal_weight' => '2.5 - 3 kg',
+                'average_lifespan' => '3 - 4 years',
+                'comments' => 'During the 1922 egg-laying trials at Wye College, using 4 ducks, they achieved an average of 233.75 eggs per duck and came first!',
+                'img_url' => '8.jpg',
+            ],
+            [
+                'animal_family_id' => 4,
+                'name' => 'Aylesbury',
+                'animal_length' => '30 to 40 cm',
+                'animal_tail' => '16 - 20 cm',
+                'animal_weight' => '3 - 4 kg',
+                'average_lifespan' => '2.5 - 4 years',
+                'comments' => 'During the 1922 egg-laying trials at Wye College, using 4 ducks, they achieved an average of 233.75 eggs per duck and came first!',
+                'img_url' => '9.jpg',
+            ],
         ]);
     }
 }

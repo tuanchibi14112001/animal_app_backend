@@ -21,11 +21,11 @@ class PlayController extends Controller
             foreach ($query2 as $query3){
                 $url1 = $query3['img_url'];
                 $query3['img_url'] = $this->url . "/animal_img/species_img/" . $url1;
-                $query3['is_clicked'] = 0;
-                $query3['is_checked'] = 0;
+                $query3['is_clicked'] = boolval(false);
+                $query3['is_checked'] = boolval(false);
+                array_push($result,$query3);
             }
-
-            array_push($result,$query2);
+           
         }
         return $result;
     }
