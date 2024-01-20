@@ -34,6 +34,7 @@ Route::prefix('animal_family')->group(function () {
 
 Route::prefix('animal_species')->group(function () {
     Route::get('/', [AnimalSpeciesController::class, 'getAll']);
+    Route::get('/{id}', [AnimalSpeciesController::class, 'getAnimalById']);
 });
 
 Route::prefix('play')->group(function () {
