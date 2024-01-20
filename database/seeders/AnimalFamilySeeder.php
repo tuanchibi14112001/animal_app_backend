@@ -35,8 +35,32 @@ class AnimalFamilySeeder extends Seeder
             [
                 'animal_type_id' => 2,
                 'name' => 'Ducks',
-                'desc' => 'Ducks are a group of species of water birds – relatively small in size and with shorter necks than their close cousins of swans and geese',
+                'desc' => 'Ducks are a group of species of water birds - relatively small in size and with shorter necks than their close cousins of swans and geese',
                 'img_url' => '4.jpg',
+            ],
+            [
+                'animal_type_id' => 3,
+                'name' => 'Elasmobranchii',
+                'desc' => 'Members of this subclass are characterised by having five to seven pairs of gill clefts opening individually to the exterior, rigid dorsal fins and small placoid scales on the skin.',
+                'img_url' => '5.jpg',
+            ],
+            [
+                'animal_type_id' => 4,
+                'name' => 'Crocodylidae',
+                'desc' => 'Crocodiles (family Crocodylidae) or true crocodiles are large semiaquatic reptiles that live throughout the tropics in Africa, Asia, the Americas and Australia.',
+                'img_url' => '6.jpg',
+            ],
+            [
+                'animal_type_id' => 5,
+                'name' => 'Alytidae',
+                'desc' => 'The Alytidae are a family of primitive frogs. Their common name is painted frogs or midwife toads',
+                'img_url' => '7.jpg',
+            ],
+            [
+                'animal_type_id' => 6,
+                'name' => 'Crab',
+                'desc' => 'Crabs are decapod crustaceans of the infraorder Brachyura, which typically have a very short projecting "tail" (abdomen), usually hidden entirely under the thorax (brachyura means "short tail" in Greek)',
+                'img_url' => '8.jpg',
             ],
         ]);
     }
