@@ -4,6 +4,7 @@ use App\Http\Controllers\AnimalFamilyController;
 use App\Http\Controllers\AnimalSpeciesController;
 use App\Http\Controllers\AnimalTypeController;
 use App\Http\Controllers\PlayController;
+use App\Http\Controllers\QuizController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -40,3 +41,8 @@ Route::prefix('animal_species')->group(function () {
 Route::prefix('play')->group(function () {
     Route::get('/', [PlayController::class, 'playGameController']);
 });
+
+Route::prefix('quizz')->group(function () {
+    Route::get('/', [QuizController::class, 'gRandomQuizController']);
+});
+
