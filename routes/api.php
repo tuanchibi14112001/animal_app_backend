@@ -5,6 +5,7 @@ use App\Http\Controllers\AnimalSpeciesController;
 use App\Http\Controllers\AnimalTypeController;
 use App\Http\Controllers\PlayController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,9 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+Route::post('/auth/register', [UserController::class, 'createUser']);
+Route::post('/auth/login', [UserController::class, 'loginUser']);
 
 Route::prefix('animal_type')->group(function () {
     Route::get('/', [AnimalTypeController::class, 'getAll']);
