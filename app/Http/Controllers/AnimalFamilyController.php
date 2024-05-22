@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\AnimalFamily;
+use App\Utilities\Constant;
 use Illuminate\Http\Request;
 
 use function PHPUnit\Framework\isEmpty;
 
 class AnimalFamilyController extends Controller
 {
-    public $url = 'http://192.168.1.6:8000';
+    public $url = Constant::BASE_URL;
     public function getAll()
     {
         $query = AnimalFamily::all();

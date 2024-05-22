@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\AnimalSpecies;
+use App\Utilities\Constant;
 use Illuminate\Http\Request;
 
 class AnimalSpeciesController extends Controller
 {
-    public $url = 'http://192.168.1.6:8000';
+    public $url = Constant::BASE_URL;
     public function getAll(){
         $qurey = AnimalSpecies::all();
         return $qurey;

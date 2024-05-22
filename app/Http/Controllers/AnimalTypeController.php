@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\AnimalFamily;
 use App\Models\AnimalType;
+use App\Utilities\Constant;
 use Illuminate\Http\Request;
 
 class AnimalTypeController extends Controller
 {
-    public $url = 'http://192.168.1.6:8000';
+    public $url = Constant::BASE_URL;
 
     public function getAll()
     {
