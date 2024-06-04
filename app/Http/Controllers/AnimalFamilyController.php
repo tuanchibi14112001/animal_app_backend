@@ -6,7 +6,6 @@ use App\Models\AnimalFamily;
 use App\Utilities\Constant;
 use Illuminate\Http\Request;
 
-use function PHPUnit\Framework\isEmpty;
 
 class AnimalFamilyController extends Controller
 {
@@ -32,4 +31,36 @@ class AnimalFamilyController extends Controller
         }
         return $animalFamily;
     }
+
+    public function getAnFInfoByName(Request $request)
+    { 
+        $animalFamilyInfo = AnimalFamily::where('name', $request->animalf_name)->first();
+        if($animalFamilyInfo){
+            $url1 = $animalFamilyInfo['img_url'];
+            $animalFamilyInfo['img_url'] = $this->url . "/animal_img/family_img/" . $url1;
+            $animalFamilyInfo['is_exist'] = 1;
+            return response()->json(
+                $animalFamilyInfo,
+            );
+        }
+        else{
+            return response()->json([
+                'is_exist' => 0,
+            ]);
+        }
+    }
+
+    public function getPredictInfoByName(Request $request){
+        $result = [];
+        $predictName = $request->predicted_result;
+        $otherNames = $request->other_results;
+
+        $predictAnimalInfo = $this->getAnFInfoByName($predictName);
+
+
+        return $predictAnimalInfo;
+
+
+    }
+
 }
