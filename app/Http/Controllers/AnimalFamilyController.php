@@ -33,34 +33,40 @@ class AnimalFamilyController extends Controller
     }
 
     public function getAnFInfoByName(Request $request)
-    { 
+    {
         $animalFamilyInfo = AnimalFamily::where('name', $request->animalf_name)->first();
-        if($animalFamilyInfo){
+        if ($animalFamilyInfo) {
             $url1 = $animalFamilyInfo['img_url'];
             $animalFamilyInfo['img_url'] = $this->url . "/animal_img/family_img/" . $url1;
             $animalFamilyInfo['is_exist'] = 1;
             return response()->json(
                 $animalFamilyInfo,
             );
-        }
-        else{
+        } else {
             return response()->json([
                 'is_exist' => 0,
             ]);
         }
     }
 
-    public function getPredictInfoByName(Request $request){
+    public function getPredictInfoByName(Request $request)
+    {
         $result = [];
-        $predictName = $request->predicted_result;
-        $otherNames = $request->other_results;
-
-        $predictAnimalInfo = $this->getAnFInfoByName($predictName);
-
-
-        return $predictAnimalInfo;
-
-
+        $otherNames = $request->name;
+        if ($otherNames) {
+            foreach ($otherNames as $name) {
+                $animalFamilyInfo = AnimalFamily::where('name', $name)->first();
+                if ($animalFamilyInfo) {
+                    $url1 = $animalFamilyInfo['img_url'];
+                    $animalFamilyInfo['img_url'] = $this->url . "/animal_img/family_img/" . $url1;
+                    $animalFamilyInfo['is_exist'] = 1;
+                } else {
+                    $animalFamilyInfo['name'] = $name;
+                    $animalFamilyInfo['is_exist'] = 0;
+                }
+                array_push($result, $animalFamilyInfo);
+            }
+        }
+        return $result;
     }
-
 }
