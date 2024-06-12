@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Models\AnimalFamily;
+use App\Models\Gallery;
+use App\Utilities\Constant;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    public $url = Constant::BASE_URL;
     /**
      * Create User
      * @param Request $request
@@ -102,8 +106,32 @@ class UserController extends Controller
         }
     }
 
-    public function getGallery()
+    public function getGallery(Request $request)
     {
-        
+        $user_id = $request->user()->id;
+        $user = User::where('id', $user_id)->first();
+
+        $query = Gallery::where('user_id', $user_id)->groupBy('animal_family_id')
+            ->selectRaw('count(*) as total, animal_family_id')
+            ->get();
+        foreach ($query as $family) {
+            $animalFamily = AnimalFamily::where('id', $family['animal_family_id'])->first();
+            $family_url =  $animalFamily['img_url'];
+            $family['img_url'] = $this->url . "/animal_img/family_img/" . $family_url;
+            $family['name'] = $animalFamily['name'];
+        }
+        return $query;
+    }
+
+    public function getGallerybyFamilyId(Request $request)
+    {
+        $user_id = $request->user()->id;
+        $animal_family_id = $request->animal_family_id;
+        $query = Gallery::where('user_id', $user_id)->where('animal_family_id', $animal_family_id)->get();
+        foreach ($query as $family) {
+            $img_url = $family['img_url'];
+            $family['img_url'] = $this->url . "/animal_img/family_img/" . $img_url;
+        }
+        return $query;
     }
 }

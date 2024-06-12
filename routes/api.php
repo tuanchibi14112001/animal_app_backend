@@ -20,9 +20,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::post('/auth/register', [UserController::class, 'createUser']);
 Route::post('/auth/login', [UserController::class, 'loginUser']);
@@ -52,3 +52,8 @@ Route::prefix('quizz')->group(function () {
     Route::get('/', [QuizController::class, 'gRandomQuizController']);
 });
 
+
+Route::middleware('auth:sanctum')->prefix('user')->group(function () {
+    Route::get('/gallery', [UserController::class, 'getGallery']);
+    Route::get('/gallery-detail', [UserController::class, 'getGallerybyFamilyId']);
+});
