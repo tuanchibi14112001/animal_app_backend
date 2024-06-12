@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
             AnimalTypeSeeder::class,
             AnimalFamilySeeder::class,
             AnimalSpeciesSeeder::class,
+            UserSeeder::class,
+            GallerySeeder::class,
         ]);
     }
 }
