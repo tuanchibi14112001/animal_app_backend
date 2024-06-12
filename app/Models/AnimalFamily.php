@@ -19,4 +19,8 @@ class AnimalFamily extends Model
     public function animalSpecies(){
         return $this->hasMany(AnimalSpecies::class, 'animal_family_id', 'id');
     }
+
+    public function gallery(){
+        return $this->hasMany(Gallery::class, 'animal_family_id', 'id');
+    }
 }
