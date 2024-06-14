@@ -16,7 +16,4 @@ class Gallery extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function animalFamily(){
-        return $this->belongsTo(AnimalFamily::class, 'animal_family_id', 'id');
-    }
 }

@@ -55,7 +55,7 @@ Route::prefix('quizz')->group(function () {
 
 Route::middleware('auth:sanctum')->prefix('user')->group(function () {
     Route::get('/gallery', [UserController::class, 'getGallery']);
-    Route::get('/gallery-detail', [UserController::class, 'getGallerybyFamilyId']);
+    Route::get('/gallery-detail', [UserController::class, 'getGallerybyFamilyName']);
     Route::post('/gallery-upload', [UserController::class, 'storeImage']);
 
 });

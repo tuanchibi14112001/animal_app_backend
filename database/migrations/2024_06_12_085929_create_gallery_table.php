@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('gallery', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->integer('animal_family_id');
+            $table->string('animal_family_name');
             $table->string('img_url');
             $table->timestamps();
         });

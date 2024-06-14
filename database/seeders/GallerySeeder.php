@@ -16,52 +16,52 @@ class GallerySeeder extends Seeder
         DB::table('gallery')->insert([
             [
                 'user_id' => 1,
-                'animal_family_id' => 1,
+                'animal_family_name' => 'Cat',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_id' => 1,
+                'animal_family_name' => 'Cat',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_id' => 1,
+                'animal_family_name' => 'Cat',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_id' => 1,
+                'animal_family_name' => 'Cat',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_id' => 2,
+                'animal_family_name' => 'Dog',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_id' => 2,
+                'animal_family_name' => 'Dog',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_id' => 3,
+                'animal_family_name' => 'Mouse',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_id' => 4,
+                'animal_family_name' => 'Ducks',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_id' => 4,
+                'animal_family_name' => 'Ducks',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_id' => 5,
+                'animal_family_name' => 'Elasmobranchii',
                 'img_url' => 'abcd',
             ],
 

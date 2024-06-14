@@ -109,25 +109,22 @@ class UserController extends Controller
     public function getGallery(Request $request)
     {
         $user_id = $request->user()->id;
-        $user = User::where('id', $user_id)->first();
-
-        $query = Gallery::where('user_id', $user_id)->groupBy('animal_family_id')
-            ->selectRaw('count(*) as total, animal_family_id')
+        $query = Gallery::where('user_id', $user_id)->groupBy('animal_family_name')
+            ->selectRaw('count(*) as total, animal_family_name')
             ->get();
         foreach ($query as $family) {
-            $animalFamily = AnimalFamily::where('id', $family['animal_family_id'])->first();
-            $family_url =  $animalFamily['img_url'];
-            $family['img_url'] = $this->url . "/animal_img/family_img/" . $family_url;
-            $family['name'] = $animalFamily['name'];
+            $animalImage = Gallery::where('user_id', $user_id)->where('animal_family_name', $family['animal_family_name'])->first();
+            $img_url =  $animalImage['img_url'];
+            $family['img_url'] = $this->url . "/uploads/gallery/$user_id/" . $img_url;
         }
         return $query;
     }
 
-    public function getGallerybyFamilyId(Request $request)
+    public function getGallerybyFamilyName(Request $request)
     {
         $user_id = $request->user()->id;
-        $animal_family_id = $request->animal_family_id;
-        $query = Gallery::where('user_id', $user_id)->where('animal_family_id', $animal_family_id)->get();
+        $animal_family_name = $request->animal_family_name;
+        $query = Gallery::where('user_id', $user_id)->where('animal_family_name', $animal_family_name)->get();
         foreach ($query as $family) {
             $img_url = $family['img_url'];
             $family['img_url'] = $this->url . "/uploads/gallery/$user_id/" . $img_url;
@@ -138,7 +135,7 @@ class UserController extends Controller
     public function storeImage(Request $request)
     {
         $user_id = $request->user()->id;
-        $animal_family_id = $request->animal_family_id;
+        $animal_family_name = ucfirst($request->animal_family_name);
         if ($request->has('image')) {
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
@@ -148,7 +145,7 @@ class UserController extends Controller
 
             $gallery = new Gallery;
             $gallery->user_id = $user_id;
-            $gallery->animal_family_id = $animal_family_id;
+            $gallery->animal_family_name  = $animal_family_name;
             $gallery->img_url = $filename;
             $result = $gallery->save();
             if ($result)
