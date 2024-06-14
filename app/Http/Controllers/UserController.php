@@ -130,8 +130,42 @@ class UserController extends Controller
         $query = Gallery::where('user_id', $user_id)->where('animal_family_id', $animal_family_id)->get();
         foreach ($query as $family) {
             $img_url = $family['img_url'];
-            $family['img_url'] = $this->url . "/animal_img/family_img/" . $img_url;
+            $family['img_url'] = $this->url . "/uploads/gallery/$user_id/" . $img_url;
         }
         return $query;
+    }
+
+    public function storeImage(Request $request)
+    {
+        $user_id = $request->user()->id;
+        $animal_family_id = $request->animal_family_id;
+        if ($request->has('image')) {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $path = 'uploads/gallery/' . $user_id;
+            $file->move($path, $filename);
+
+            $gallery = new Gallery;
+            $gallery->user_id = $user_id;
+            $gallery->animal_family_id = $animal_family_id;
+            $gallery->img_url = $filename;
+            $result = $gallery->save();
+            if ($result)
+                return response()->json([
+                    'status' => true,
+                    'result' => "Image uploaded successfully",
+                ], 200);
+            else {
+                return response()->json([
+                    'status' => false,
+                    'result' => "Error uploading image",
+                ], 200);
+            }
+        }
+        return response()->json([
+            'status' => false,
+            'result' => "Error uploading image",
+        ], 200);
     }
 }
