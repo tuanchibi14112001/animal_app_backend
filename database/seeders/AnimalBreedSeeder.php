@@ -6,16 +6,16 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class AnimalSpeciesSeeder extends Seeder
+class AnimalBreedSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('animal_species')->insert([
+        DB::table('animal_breeds')->insert([
             [
-                'animal_family_id' => 1,
+                'animal_specie_id' => 1,
                 'name' => 'American Cocker Spaniel',
                 'animal_length' => '61-74 cm',
                 'animal_tail' => '36-43 cm',
@@ -26,7 +26,7 @@ class AnimalSpeciesSeeder extends Seeder
             ],
 
             [
-                'animal_family_id' => 1,
+                'animal_specie_id' => 1,
                 'name' => 'Brittany',
                 'animal_length' => '44-52 cm',
                 'animal_tail' => '56-66 cm',
@@ -37,7 +37,7 @@ class AnimalSpeciesSeeder extends Seeder
             ],
 
             [
-                'animal_family_id' => 1,
+                'animal_specie_id' => 1,
                 'name' => 'Chesapeake Bay Retrievers',
                 'animal_length' => '79-94 cm',
                 'animal_tail' => '71-86 cm',
@@ -47,7 +47,7 @@ class AnimalSpeciesSeeder extends Seeder
                 'img_url' => '3.jpg',
             ],
             [
-                'animal_family_id' => 2,
+                'animal_specie_id' => 2,
                 'name' => 'Abyssinian Cat',
                 'animal_length' => '30-41 cm',
                 'animal_tail' => '20-25 cm',
@@ -57,7 +57,7 @@ class AnimalSpeciesSeeder extends Seeder
                 'img_url' => '4.jpg',
             ],
             [
-                'animal_family_id' => 2,
+                'animal_specie_id' => 2,
                 'name' => 'American Bobtail Cat',
                 'animal_length' => '43-48 cm',
                 'animal_tail' => '23-25 cm',
@@ -67,7 +67,7 @@ class AnimalSpeciesSeeder extends Seeder
                 'img_url' => '5.jpg',
             ],
             [
-                'animal_family_id' => 3,
+                'animal_specie_id' => 3,
                 'name' => 'White-Footed Mouse',
                 'animal_length' => '150 - 205 mm',
                 'animal_tail' => '65 - 95 mm',
@@ -77,7 +77,7 @@ class AnimalSpeciesSeeder extends Seeder
                 'img_url' => '6.jpg',
             ],
             [
-                'animal_family_id' => 3,
+                'animal_specie_id' => 3,
                 'name' => 'Deer Mouse',
                 'animal_length' => '119 - 222 mm',
                 'animal_tail' => '45 - 105 mm',
@@ -87,7 +87,7 @@ class AnimalSpeciesSeeder extends Seeder
                 'img_url' => '7.jpg',
             ],
             [
-                'animal_family_id' => 4,
+                'animal_specie_id' => 4,
                 'name' => 'Abacot Ranger',
                 'animal_length' => '56 to 71 cm',
                 'animal_tail' => '20-24 cm',
@@ -97,7 +97,7 @@ class AnimalSpeciesSeeder extends Seeder
                 'img_url' => '8.jpg',
             ],
             [
-                'animal_family_id' => 4,
+                'animal_specie_id' => 4,
                 'name' => 'Aylesbury',
                 'animal_length' => '30 to 40 cm',
                 'animal_tail' => '16 - 20 cm',
@@ -107,7 +107,7 @@ class AnimalSpeciesSeeder extends Seeder
                 'img_url' => '9.jpg',
             ],
             [
-                'animal_family_id' => 5,
+                'animal_specie_id' => 5,
                 'name' => 'Cow shark',
                 'animal_length' => '309 - 330 cm ',
                 'animal_tail' => '50 - 55 cm',
@@ -117,7 +117,7 @@ class AnimalSpeciesSeeder extends Seeder
                 'img_url' => '10.jpg',
             ],
             [
-                'animal_family_id' => 5,
+                'animal_specie_id' => 5,
                 'name' => 'Great white',
                 'animal_length' => '4.6 to 4.9 m ',
                 'animal_tail' => '1.2 m',
@@ -127,7 +127,7 @@ class AnimalSpeciesSeeder extends Seeder
                 'img_url' => '11.jpg',
             ],
             [
-                'animal_family_id' => 6,
+                'animal_specie_id' => 6,
                 'name' => 'American crocodile',
                 'animal_length' => ' 2.9 - 4.1 m',
                 'animal_tail' => '53 - 82 cm',
@@ -137,7 +137,7 @@ class AnimalSpeciesSeeder extends Seeder
                 'img_url' => '12.jpg',
             ],
             [
-                'animal_family_id' => 6,
+                'animal_specie_id' => 6,
                 'name' => 'Freshwater crocodile',
                 'animal_length' => ' 2.9 - 4.1 m',
                 'animal_tail' => '53 - 82 cm',
@@ -147,7 +147,7 @@ class AnimalSpeciesSeeder extends Seeder
                 'img_url' => '13.jpg',
             ],
             [
-                'animal_family_id' => 7,
+                'animal_specie_id' => 7,
                 'name' => 'Iberian midwife toad',
                 'animal_length' => '  40 mm ',
                 'animal_tail' => '5 - 8.3 cm',
@@ -157,7 +157,7 @@ class AnimalSpeciesSeeder extends Seeder
                 'img_url' => '14.jpg',
             ],
             [
-                'animal_family_id' => 7,
+                'animal_specie_id' => 7,
                 'name' => 'Hula painted frog',
                 'animal_length' => '  40 mm ',
                 'animal_tail' => '5 - 8.3 cm',
@@ -167,7 +167,7 @@ class AnimalSpeciesSeeder extends Seeder
                 'img_url' => '15.jpg',
             ],
             [
-                'animal_family_id' => 8,
+                'animal_specie_id' => 8,
                 'name' => 'Dromia personata',
                 'animal_length' => '  10.2 cm ',
                 'animal_tail' => '4.6 - 8 cm',
@@ -177,7 +177,7 @@ class AnimalSpeciesSeeder extends Seeder
                 'img_url' => '16.jpg',
             ],
             [
-                'animal_family_id' => 8,
+                'animal_specie_id' => 8,
                 'name' => 'King crabs',
                 'animal_length' => '13 - 25.3 cm ',
                 'animal_tail' => '9.8 - 16.4 cm',

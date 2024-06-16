@@ -16,52 +16,52 @@ class GallerySeeder extends Seeder
         DB::table('gallery')->insert([
             [
                 'user_id' => 1,
-                'animal_family_name' => 'Cat',
+                'animal_specie_name' => 'Cat',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_name' => 'Cat',
+                'animal_specie_name' => 'Cat',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_name' => 'Cat',
+                'animal_specie_name' => 'Cat',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_name' => 'Cat',
+                'animal_specie_name' => 'Cat',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_name' => 'Dog',
+                'animal_specie_name' => 'Dog',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_name' => 'Dog',
+                'animal_specie_name' => 'Dog',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_name' => 'Mouse',
+                'animal_specie_name' => 'Mouse',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_name' => 'Ducks',
+                'animal_specie_name' => 'Ducks',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_name' => 'Ducks',
+                'animal_specie_name' => 'Ducks',
                 'img_url' => 'abcd',
             ],
             [
                 'user_id' => 1,
-                'animal_family_name' => 'Elasmobranchii',
+                'animal_specie_name' => 'Elasmobranchii',
                 'img_url' => 'abcd',
             ],
 

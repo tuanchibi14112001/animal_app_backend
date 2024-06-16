@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('animal_family', function (Blueprint $table) {
+        Schema::create('animal_breeds', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->integer('animal_type_id');
+            $table->integer('animal_specie_id');
             $table->string('name');
-            $table->text('desc');
+            $table->string('animal_length');
+            $table->string('animal_tail');
+            $table->string('animal_weight');
+            $table->string('average_lifespan');
+            $table->text('comments');
             $table->string('img_url');
             $table->timestamps();
         });
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('animal_family');
+        Schema::dropIfExists('animal_species');
     }
 };

@@ -13,13 +13,9 @@ return new class extends Migration
     {
         Schema::create('animal_species', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->integer('animal_family_id');
+            $table->integer('animal_type_id');
             $table->string('name');
-            $table->string('animal_length');
-            $table->string('animal_tail');
-            $table->string('animal_weight');
-            $table->string('average_lifespan');
-            $table->text('comments');
+            $table->text('desc');
             $table->string('img_url');
             $table->timestamps();
         });
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('animal_species');
+        Schema::dropIfExists('animal_family');
     }
 };

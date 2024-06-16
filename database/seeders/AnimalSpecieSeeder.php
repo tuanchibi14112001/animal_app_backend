@@ -6,14 +6,14 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class AnimalFamilySeeder extends Seeder
+class AnimalSpecieSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('animal_family')->insert([
+        DB::table('animal_species')->insert([
             [
                 'animal_type_id' => 1,
                 'name' => 'Dog',
