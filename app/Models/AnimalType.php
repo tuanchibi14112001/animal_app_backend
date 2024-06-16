@@ -12,8 +12,8 @@ class AnimalType extends Model
     protected $primaryKey = 'id';
     protected $guarded = [];
 
-    public function animalFamily(){
-        return $this->hasMany(AnimalFamily::class, 'animal_type_id', 'id');
+    public function animalSpecie(){
+        return $this->hasMany(AnimalSpecie::class, 'animal_type_id', 'id');
     }
 
 

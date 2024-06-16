@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AnimalSpecies extends Model
+class AnimalBreed extends Model
 {
     use HasFactory;
-    protected $table = 'animal_species';
+    protected $table = 'animal_breeds';
     protected $primaryKey = 'id';
     protected $guarded = [];
 
-    public function animalFamily(){
-        return $this->belongsTo(AnimalFamily::class, 'animal_family_id', 'id');
+    public function animalSpecie(){
+        return $this->belongsTo(AnimalSpecie::class, 'animal_specie_id', 'id');
     }
 }

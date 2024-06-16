@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AnimalFamily;
 use App\Models\AnimalType;
 use App\Utilities\Constant;
 use Illuminate\Http\Request;
@@ -17,16 +16,16 @@ class AnimalTypeController extends Controller
         return $query;
     }
 
-    public function getAnimalFamilyByName(Request $request)
+    public function getAnimalSpecieByName(Request $request)
     {
         $query = AnimalType::where('name', $request->animal_name)->first();
         if ($query) {
-            $query_family = $query->animalFamily;
-            foreach ($query_family as $family) {
-                $url1 = $family['img_url'];
-                $family['img_url'] = $this->url . "/animal_img/family_img/" . $url1;
+            $query_specie = $query->animalSpecie;
+            foreach ($query_specie as $specie) {
+                $url1 = $specie['img_url'];
+                $specie['img_url'] = $this->url . "/animal_img/species_img/" . $url1;
             }
-            return $query_family;
+            return $query_specie;
         }
         return $query;
     }

@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AnimalFamily extends Model
+class AnimalSpecie extends Model
 {
     use HasFactory;
-    protected $table = 'animal_family';
+    protected $table = 'animal_species';
     protected $primaryKey = 'id';
     protected $guarded = [];
 
@@ -16,8 +16,8 @@ class AnimalFamily extends Model
         return $this->belongsTo(AnimalType::class, 'animal_type_id', 'id');
     }
 
-    public function animalSpecies(){
-        return $this->hasMany(AnimalSpecies::class, 'animal_family_id', 'id');
+    public function animalBreed(){
+        return $this->hasMany(AnimalBreed::class, 'animal_specie_id', 'id');
     }
 
 }

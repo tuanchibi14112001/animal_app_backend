@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\AnimalFamilyController;
-use App\Http\Controllers\AnimalSpeciesController;
+use App\Http\Controllers\AnimalBreedsController;
+use App\Http\Controllers\AnimalSpecieController;
 use App\Http\Controllers\AnimalTypeController;
 use App\Http\Controllers\PlayController;
 use App\Http\Controllers\QuizController;
@@ -29,19 +29,19 @@ Route::post('/auth/login', [UserController::class, 'loginUser']);
 
 Route::prefix('animal_type')->group(function () {
     Route::get('/', [AnimalTypeController::class, 'getAll']);
-    Route::get('/{animal_name}', [AnimalTypeController::class, 'getAnimalFamilyByName']);
+    Route::get('/{animal_name}', [AnimalTypeController::class, 'getAnimalSpecieByName']);
 });
 
-Route::prefix('animal_family')->group(function () {
-    Route::get('/', [AnimalFamilyController::class, 'getAll']);
-    Route::get('/result_detail', [AnimalFamilyController::class, 'getPredictInfoByName']);
-    Route::get('/detail/{animalf_name}', [AnimalFamilyController::class, 'getAnFInfoByName']);
-    Route::get('/get_breeds/{id}', [AnimalFamilyController::class, 'getAnimalBreeds']);
+Route::prefix('animal_specie')->group(function () {
+    Route::get('/', [AnimalSpecieController::class, 'getAll']);
+    Route::get('/result_detail', [AnimalSpecieController::class, 'getPredictInfoByName']);
+    Route::get('/detail/{animalf_name}', [AnimalSpecieController::class, 'getAnFInfoByName']);
+    Route::get('/get_breeds/{id}', [AnimalSpecieController::class, 'getAnimalBreeds']);
 });
 
-Route::prefix('animal_species')->group(function () {
-    Route::get('/', [AnimalSpeciesController::class, 'getAll']);
-    Route::get('/{id}', [AnimalSpeciesController::class, 'getAnimalById']);
+Route::prefix('animal_breed')->group(function () {
+    Route::get('/', [AnimalBreedsController::class, 'getAll']);
+    Route::get('/{id}', [AnimalBreedsController::class, 'getAnimalById']);
 });
 
 Route::prefix('play')->group(function () {
