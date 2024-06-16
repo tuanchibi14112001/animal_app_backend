@@ -25,7 +25,7 @@ class AnimalSpecieController extends Controller
             // }
             foreach ($querys as $query) {
                 $url1 = $query['img_url'];
-                $query['img_url'] = $this->url . "/animal_img/species_img/" . $url1;
+                $query['img_url'] = $this->url . "/animal_img/breeds_img/" . $url1;
             }
             return $querys;
         }
