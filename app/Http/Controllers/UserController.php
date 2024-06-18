@@ -108,11 +108,11 @@ class UserController extends Controller
     public function getGallery(Request $request)
     {
         $user_id = $request->user()->id;
-        $query = Gallery::where('user_id', $user_id)->groupBy('animal_specie_name')
+        $query = Gallery::where('user_id', $user_id)->where('is_deleted', 0)->groupBy('animal_specie_name')
             ->selectRaw('count(*) as total, animal_specie_name')
             ->get();
         foreach ($query as $family) {
-            $animalImage = Gallery::where('user_id', $user_id)->where('animal_specie_name', $family['animal_specie_name'])->first();
+            $animalImage = Gallery::where('user_id', $user_id)->where('is_deleted', 0)->where('animal_specie_name', $family['animal_specie_name'])->first();
             $img_url =  $animalImage['img_url'];
             $family['img_url'] = $this->url . "/uploads/gallery/$user_id/" . $img_url;
         }
@@ -123,7 +123,7 @@ class UserController extends Controller
     {
         $user_id = $request->user()->id;
         $animal_specie_name = $request->animal_specie_name;
-        $query = Gallery::where('user_id', $user_id)->where('animal_specie_name', $animal_specie_name)->get();
+        $query = Gallery::where('user_id', $user_id)->where('is_deleted', 0)->where('animal_specie_name', $animal_specie_name)->get();
         foreach ($query as $family) {
             $img_url = $family['img_url'];
             $family['img_url'] = $this->url . "/uploads/gallery/$user_id/" . $img_url;
@@ -146,6 +146,7 @@ class UserController extends Controller
             $gallery->user_id = $user_id;
             $gallery->animal_specie_name  = $animal_specie_name;
             $gallery->img_url = $filename;
+            $gallery->is_deleted = 0;
             $result = $gallery->save();
             if ($result)
                 return response()->json([
@@ -162,6 +163,24 @@ class UserController extends Controller
         return response()->json([
             'status' => false,
             'result' => "Error uploading image",
+        ], 200);
+    }
+
+    public function deleteImage(Request $request)
+    {
+        $gallery_id = $request->image_id;
+        $gallery = Gallery::where('id', $gallery_id)->first();
+        $gallery->is_deleted = 1;
+        $result = $gallery->save();
+        if ($result) {
+            return response()->json([
+                'status' => true,
+                'result' => "Image deleted successfully",
+            ], 200);
+        }
+        return response()->json([
+            'status' => false,
+            'result' => "Error deleting image",
         ], 200);
     }
 }

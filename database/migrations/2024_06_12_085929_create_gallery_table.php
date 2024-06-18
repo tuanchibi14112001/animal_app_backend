@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('animal_specie_name');
             $table->string('img_url');
+            $table->integer('is_deleted')->default(0);
             $table->timestamps();
         });
     }
