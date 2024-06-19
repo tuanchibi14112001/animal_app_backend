@@ -5,7 +5,7 @@ namespace App\Utilities;
 
 class Constant {
 
-    const BASE_URL = "http://192.168.1.2:8000";
+    const BASE_URL = "http://192.168.1.6:8000";
 
 
     // USER

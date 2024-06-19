@@ -5,6 +5,7 @@ use App\Http\Controllers\AnimalSpecieController;
 use App\Http\Controllers\AnimalTypeController;
 use App\Http\Controllers\PlayController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -58,6 +59,12 @@ Route::middleware('auth:sanctum')->prefix('user')->group(function () {
     Route::get('/gallery-detail', [UserController::class, 'getGallerybyFamilyName']);
     Route::post('/gallery-delete', [UserController::class, 'deleteImage']);
     Route::post('/gallery-upload', [UserController::class, 'storeImage']);
+
+});
+
+Route::prefix('search')->group(function () {
+    Route::get('/prepair', [SearchController::class, 'preparetoSearch']);
+    Route::get('/detail', [SearchController::class, 'getSearchDetail']);
 
 });
 
