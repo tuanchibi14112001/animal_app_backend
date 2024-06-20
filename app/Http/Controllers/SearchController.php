@@ -15,20 +15,20 @@ class SearchController extends Controller
     {
         $result = [];
         // type 1 is specie
-        $species = AnimalSpecie::select('name', 'img_url')->get();
+        $species = AnimalSpecie::select('id','name')->orderBy('name')->get();
         foreach ($species as $specie) {
             $specie['type'] = 1;
-            $url1 = $specie['img_url'];
-            $specie['img_url'] = $this->url . "/animal_img/species_img/" . $url1;
+            // $url1 = $specie['img_url'];
+            // $specie['img_url'] = $this->url . "/animal_img/species_img/" . $url1;
             array_push($result, $specie);
         }
 
         // type 2 is breed
-        $breeds = AnimalBreed::select('name', 'img_url')->get();
+        $breeds = AnimalBreed::select('id','name')->orderBy('name')->get();
         foreach ($breeds as $breed) {
             $breed['type'] = 2;
-            $url1 = $breed['img_url'];
-            $breed['img_url'] = $this->url . "/animal_img/breeds_img/" . $url1;
+            // $url1 = $breed['img_url'];
+            // $breed['img_url'] = $this->url . "/animal_img/breeds_img/" . $url1;
             array_push($result, $breed);
         }
 
@@ -54,7 +54,7 @@ class SearchController extends Controller
             $query['img_url'] = $this->url . "/animal_img/breeds_img/" . $url1;
             return $query;
         }
-
+        
         return $result;
     }
 }

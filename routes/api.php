@@ -63,7 +63,7 @@ Route::middleware('auth:sanctum')->prefix('user')->group(function () {
 });
 
 Route::prefix('search')->group(function () {
-    Route::get('/prepair', [SearchController::class, 'preparetoSearch']);
+    Route::get('/prepare', [SearchController::class, 'preparetoSearch']);
     Route::get('/detail', [SearchController::class, 'getSearchDetail']);
 
 });
