@@ -17,7 +17,7 @@ class QuizController extends Controller
         $result = [];
 
         // Questions 1
-        $query = AnimalBreed::inRandomOrder()->limit(10)->get(['animal_specie_id', 'id', 'name', 'img_url']);
+        $query = AnimalBreed::inRandomOrder()->limit(10)->get(['id', 'name', 'img_url']);
         foreach ($query as $imgQuiz) {
             $answers = [];
             $url1 = $imgQuiz['img_url'];
@@ -35,7 +35,6 @@ class QuizController extends Controller
             $imgQuiz['type'] = 1;
             array_push($result, $imgQuiz);
         }
-        data_forget($query, '*.animal_specie_id');
 
         // Questions 2
         // $queryTextQuestion = AnimalBreed::inRandomOrder()->limit(5)->get(['animal_specie_id', 'id', 'name', 'img_url']);
