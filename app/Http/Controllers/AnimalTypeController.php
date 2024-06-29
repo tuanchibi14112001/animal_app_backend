@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnimalSpecie;
 use App\Models\AnimalType;
 use App\Utilities\Constant;
 use Illuminate\Http\Request;
@@ -24,9 +25,21 @@ class AnimalTypeController extends Controller
             foreach ($query_specie as $specie) {
                 $url1 = $specie['img_url'];
                 $specie['img_url'] = $this->url . "/animal_img/species_img/" . $url1;
+                $specie['video_url'] = $this->getVideoUrl($specie);
             }
             return $query_specie;
         }
         return $query;
+    }
+
+    private function getVideoUrl(AnimalSpecie $animalspecie)
+    {
+        $query_video = $animalspecie->speciesVideos()->first();
+        if ($query_video) {
+            $video_url = $query_video['video_url'];
+            $query_video['video_url'] = $this->url . "/animal_video/species_video/" . $video_url;
+            return $query_video['video_url'];
+        } else
+            return null;
     }
 }

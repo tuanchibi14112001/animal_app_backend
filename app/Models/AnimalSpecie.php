@@ -20,4 +20,8 @@ class AnimalSpecie extends Model
         return $this->hasMany(AnimalBreed::class, 'animal_specie_id', 'id');
     }
 
+    public function speciesVideos(){
+        return $this->hasMany(SpeciesVideo::class, 'animal_specie_id', 'id');
+    }
+
 }
