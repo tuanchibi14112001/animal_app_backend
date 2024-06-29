@@ -10,6 +10,18 @@ use Illuminate\Http\Request;
 class AnimalSpecieController extends Controller
 {
     public $url = Constant::BASE_URL;
+
+    private function getVideoUrl(AnimalSpecie $animalspecie)
+    {
+        $query_video = $animalspecie->speciesVideos()->first();
+        if ($query_video) {
+            $video_url = $query_video['video_url'];
+            $query_video['video_url'] = $this->url . "/animal_video/species_video/" . $video_url;
+            return $query_video['video_url'];
+        } else
+            return null;
+    }
+
     public function getAll()
     {
         $query = AnimalSpecie::all();
@@ -39,6 +51,8 @@ class AnimalSpecieController extends Controller
             $url1 = $animalSpecieInfo['img_url'];
             $animalSpecieInfo['img_url'] = $this->url . "/animal_img/species_img/" . $url1;
             $animalSpecieInfo['is_exist'] = 1;
+            $animalSpecieInfo['video_url'] = $this->getVideoUrl($animalSpecieInfo);
+
             return response()->json(
                 $animalSpecieInfo,
             );
@@ -52,14 +66,15 @@ class AnimalSpecieController extends Controller
     public function getPredictInfoByName(Request $request)
     {
         $result = [];
-        $otherNames = $request->name;
-        if ($otherNames) {
-            foreach ($otherNames as $name) {
+        $animalNames = $request->name;
+        if ($animalNames) {
+            foreach ($animalNames as $name) {
                 $animalSpecieInfo = AnimalSpecie::where('name', $name)->first();
                 if ($animalSpecieInfo) {
                     $url1 = $animalSpecieInfo['img_url'];
                     $animalSpecieInfo['img_url'] = $this->url . "/animal_img/species_img/" . $url1;
                     $animalSpecieInfo['is_exist'] = 1;
+                    $animalSpecieInfo['video_url'] = $this->getVideoUrl($animalSpecieInfo);
                 } else {
                     $animalSpecieInfo['name'] = $name;
                     $animalSpecieInfo['is_exist'] = 0;

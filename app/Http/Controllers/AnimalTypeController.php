@@ -26,6 +26,7 @@ class AnimalTypeController extends Controller
                 $url1 = $specie['img_url'];
                 $specie['img_url'] = $this->url . "/animal_img/species_img/" . $url1;
                 $specie['video_url'] = $this->getVideoUrl($specie);
+                $specie['is_exist'] = 1;
             }
             return $query_specie;
         }
