@@ -41,8 +41,7 @@ class SearchController extends Controller
         $result = [];
         if ($type == 1) {
             $animalSpecieInfo = AnimalSpecie::where('name', $request->name)->first();
-            $url1 = $animalSpecieInfo['img_url'];
-            $animalSpecieInfo['img_url'] = $this->url . "/animal_img/species_img/" . $url1;
+            $animalSpecieInfo['img_url'] = $this->getImageUrl($animalSpecieInfo);
             $animalSpecieInfo['is_exist'] = 1;
             return $animalSpecieInfo;
     
@@ -56,5 +55,16 @@ class SearchController extends Controller
         }
         
         return $result;
+    }
+
+    private function getImageUrl(AnimalSpecie $animalspecie)
+    {
+        $query_image = $animalspecie->speciesImages()->first();
+        if ($query_image) {
+            $img_url = $query_image['img_url'];
+            $query_image['img_url'] = $this->url . "/animal_img/species_img/" . $img_url;
+            return $query_image['img_url'];
+        } else
+            return null;
     }
 }

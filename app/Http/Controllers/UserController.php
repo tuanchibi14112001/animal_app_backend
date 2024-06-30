@@ -110,11 +110,12 @@ class UserController extends Controller
         $user_id = $request->user()->id;
         $query = Gallery::where('user_id', $user_id)->where('is_deleted', 0)->groupBy('animal_specie_name')
             ->selectRaw('count(*) as total, animal_specie_name')
+            ->orderBy('animal_specie_name')
             ->get();
-        foreach ($query as $family) {
-            $animalImage = Gallery::where('user_id', $user_id)->where('is_deleted', 0)->where('animal_specie_name', $family['animal_specie_name'])->first();
+        foreach ($query as $species) {
+            $animalImage = Gallery::where('user_id', $user_id)->where('is_deleted', 0)->where('animal_specie_name', $species['animal_specie_name'])->orderBy('id', 'DESC')->first();
             $img_url =  $animalImage['img_url'];
-            $family['img_url'] = $this->url . "/uploads/gallery/$user_id/" . $img_url;
+            $species['img_url'] = $this->url . "/uploads/gallery/$user_id/" . $img_url;
         }
         return $query;
     }
@@ -123,7 +124,7 @@ class UserController extends Controller
     {
         $user_id = $request->user()->id;
         $animal_specie_name = $request->animal_specie_name;
-        $query = Gallery::where('user_id', $user_id)->where('is_deleted', 0)->where('animal_specie_name', $animal_specie_name)->get();
+        $query = Gallery::where('user_id', $user_id)->where('is_deleted', 0)->where('animal_specie_name', $animal_specie_name)->orderBy('id', 'DESC')->get();
         foreach ($query as $family) {
             $img_url = $family['img_url'];
             $family['img_url'] = $this->url . "/uploads/gallery/$user_id/" . $img_url;

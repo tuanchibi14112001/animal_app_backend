@@ -24,4 +24,8 @@ class AnimalSpecie extends Model
         return $this->hasMany(SpeciesVideo::class, 'animal_specie_id', 'id');
     }
 
+    public function speciesImages(){
+        return $this->hasMany(SpeciesImage::class, 'animal_specie_id', 'id');
+    }
+
 }

@@ -22,6 +22,19 @@ class AnimalSpecieController extends Controller
             return null;
     }
 
+    private function getImageUrl(AnimalSpecie $animalspecie)
+    {
+        $query_image = $animalspecie->speciesImages()->first();
+        if ($query_image) {
+            $img_url = $query_image['img_url'];
+            $query_image['img_url'] = $this->url . "/animal_img/species_img/" . $img_url;
+            return $query_image['img_url'];
+        } else
+            return null;
+    }
+
+
+
     public function getAll()
     {
         $query = AnimalSpecie::all();
@@ -48,9 +61,7 @@ class AnimalSpecieController extends Controller
     {
         $animalSpecieInfo = AnimalSpecie::where('name', $request->animalf_name)->first();
         if ($animalSpecieInfo) {
-            $url1 = $animalSpecieInfo['img_url'];
-            $animalSpecieInfo['img_url'] = $this->url . "/animal_img/species_img/" . $url1;
-            $animalSpecieInfo['is_exist'] = 1;
+            $animalSpecieInfo['img_url'] = $this->getImageUrl($animalSpecieInfo);
             $animalSpecieInfo['video_url'] = $this->getVideoUrl($animalSpecieInfo);
 
             return response()->json(
@@ -69,12 +80,12 @@ class AnimalSpecieController extends Controller
         $animalNames = $request->name;
         if ($animalNames) {
             foreach ($animalNames as $name) {
+                $name = ucfirst($name);
                 $animalSpecieInfo = AnimalSpecie::where('name', $name)->first();
                 if ($animalSpecieInfo) {
-                    $url1 = $animalSpecieInfo['img_url'];
-                    $animalSpecieInfo['img_url'] = $this->url . "/animal_img/species_img/" . $url1;
-                    $animalSpecieInfo['is_exist'] = 1;
+                    $animalSpecieInfo['img_url'] = $this->getImageUrl($animalSpecieInfo);
                     $animalSpecieInfo['video_url'] = $this->getVideoUrl($animalSpecieInfo);
+                    $animalSpecieInfo['is_exist'] = 1;
                 } else {
                     $animalSpecieInfo['name'] = $name;
                     $animalSpecieInfo['is_exist'] = 0;
