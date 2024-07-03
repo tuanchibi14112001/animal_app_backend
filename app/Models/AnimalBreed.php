@@ -15,4 +15,9 @@ class AnimalBreed extends Model
     public function animalSpecie(){
         return $this->belongsTo(AnimalSpecie::class, 'animal_specie_id', 'id');
     }
+
+    
+    public function breedImages(){
+        return $this->hasMany(BreedImage::class, 'animal_breed_id', 'id');
+    }
 }

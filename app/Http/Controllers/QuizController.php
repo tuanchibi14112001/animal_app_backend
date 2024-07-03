@@ -11,17 +11,29 @@ class QuizController extends Controller
     //
     public $url = Constant::BASE_URL;
 
+    private function getBreedImageUrl(AnimalBreed $animalBreed)
+    {
+        $query_image = $animalBreed->breedImages()->first();
+        if ($query_image) {
+            $img_url = $query_image['img_url'];
+            $query_image['img_url'] = $this->url . "/animal_img/breeds_img/" . $img_url;
+            return $query_image['img_url'];
+        } else
+            return null;
+    }
+
     // Generate random quiz controller
     public function gRandomQuizController()
     {
         $result = [];
 
         // Questions 1
-        $query = AnimalBreed::inRandomOrder()->limit(10)->get(['id', 'name', 'img_url']);
+        $query = AnimalBreed::inRandomOrder()->limit(10)->get(['id', 'name']);
         foreach ($query as $imgQuiz) {
             $answers = [];
-            $url1 = $imgQuiz['img_url'];
-            $imgQuiz['img_url'] = $this->url . "/animal_img/breeds_img/" . $url1;
+            $imgQuiz['img_url'] = $this->getBreedImageUrl($imgQuiz);
+            // $url1 = $imgQuiz['img_url'];
+            // $imgQuiz['img_url'] = $this->url . "/animal_img/breeds_img/" . $url1;
             $imgQuiz['correctAnswer'] = $imgQuiz['name'];
             $query1 = AnimalBreed::where('id', '!=', $imgQuiz['id'])->inRandomOrder()->limit(3)->get('name');
             foreach ($query1 as $animal) {

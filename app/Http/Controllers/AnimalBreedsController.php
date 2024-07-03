@@ -9,14 +9,27 @@ use Illuminate\Http\Request;
 class AnimalBreedsController extends Controller
 {
     public $url = Constant::BASE_URL;
-    public function getAll(){
+    public function getAll()
+    {
         $qurey = AnimalBreed::all();
         return $qurey;
     }
-    public function getAnimalById(Request $request){
+
+    private function getBreedImageUrl(AnimalBreed $animalBreed)
+    {
+        $query_image = $animalBreed->breedImages()->first();
+        if ($query_image) {
+            $img_url = $query_image['img_url'];
+            $query_image['img_url'] = $this->url . "/animal_img/breeds_img/" . $img_url;
+            return $query_image['img_url'];
+        } else
+            return null;
+    }
+
+    public function getAnimalById(Request $request)
+    {
         $query =  AnimalBreed::find($request->id);
-            $url1 = $query['img_url'];
-            $query['img_url'] = $this->url . "/animal_img/breeds_img/" . $url1;
+        $query['img_url'] = $this->getBreedImageUrl($query);
         return $query;
     }
 }

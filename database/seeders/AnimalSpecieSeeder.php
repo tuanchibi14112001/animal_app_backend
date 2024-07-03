@@ -54,6 +54,11 @@ class AnimalSpecieSeeder extends Seeder
                 'name' => 'Crab',
                 'desc' => 'Crabs are decapod crustaceans of the infraorder Brachyura, which typically have a very short projecting "tail" (abdomen), usually hidden entirely under the thorax (brachyura means "short tail" in Greek)',
             ],
+            [
+                'animal_type_id' => 6,
+                'name' => 'Crabs',
+                'desc' => 'Crabs are decapod crustaceans of the infraorder Brachyura, which typically have a very short projecting "tail" (abdomen), usually hidden entirely under the thorax (brachyura means "short tail" in Greek)',
+            ],
         ]);
     }
 }

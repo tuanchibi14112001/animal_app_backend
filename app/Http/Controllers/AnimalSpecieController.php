@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnimalBreed;
 use App\Models\AnimalSpecie;
 use App\Utilities\Constant;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\isNull;
 
 class AnimalSpecieController extends Controller
 {
@@ -33,6 +35,17 @@ class AnimalSpecieController extends Controller
             return null;
     }
 
+    private function getBreedImageUrl(AnimalBreed $animalBreed)
+    {
+        $query_image = $animalBreed->breedImages()->first();
+        if ($query_image) {
+            $img_url = $query_image['img_url'];
+            $query_image['img_url'] = $this->url . "/animal_img/breeds_img/" . $img_url;
+            return $query_image['img_url'];
+        } else
+            return null;
+    }
+
 
 
     public function getAll()
@@ -45,16 +58,16 @@ class AnimalSpecieController extends Controller
     {
         $animalSpecie = AnimalSpecie::find($request->id);
         if ($animalSpecie) {
-            $querys = $animalSpecie->animalBreed;
-            // if($querys->isEmpty()){
+            $breeds = $animalSpecie->animalBreed;
+            // if ($breeds->isEmpty()) {
+            //     $breeds['id'] = 0;
             // }
-            foreach ($querys as $query) {
-                $url1 = $query['img_url'];
-                $query['img_url'] = $this->url . "/animal_img/breeds_img/" . $url1;
+            foreach ($breeds as  $breed) {
+                $breed['img_url'] = $this->getBreedImageUrl($breed);
             }
-            return $querys;
+            return $breeds;
         }
-        return $animalSpecie;
+        return null;
     }
 
     public function getAnFInfoByName(Request $request)
