@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             GallerySeeder::class,
             SpeciesVideo::class,
             SpeciesImage::class,
+            BreedImage::class,
         ]);
     }
 }
