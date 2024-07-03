@@ -15,7 +15,7 @@ class SearchController extends Controller
     {
         $result = [];
         // type 1 is specie
-        $species = AnimalSpecie::select('id','name')->orderBy('name')->get();
+        $species = AnimalSpecie::select('id', 'name')->orderBy('name')->get();
         foreach ($species as $specie) {
             $specie['type'] = 1;
             // $url1 = $specie['img_url'];
@@ -24,7 +24,7 @@ class SearchController extends Controller
         }
 
         // type 2 is breed
-        $breeds = AnimalBreed::select('id','name')->orderBy('name')->get();
+        $breeds = AnimalBreed::select('id', 'name')->orderBy('name')->get();
         foreach ($breeds as $breed) {
             $breed['type'] = 2;
             // $url1 = $breed['img_url'];
@@ -44,16 +44,14 @@ class SearchController extends Controller
             $animalSpecieInfo['img_url'] = $this->getImageUrl($animalSpecieInfo);
             $animalSpecieInfo['is_exist'] = 1;
             return $animalSpecieInfo;
-    
         }
-        
+
         if ($type == 2) {
             $query =  AnimalBreed::where('name', $request->name)->first();
-            $url1 = $query['img_url'];
-            $query['img_url'] = $this->url . "/animal_img/breeds_img/" . $url1;
+            $query['img_url'] = $this->getBreedImageUrl($query);
             return $query;
         }
-        
+
         return $result;
     }
 
@@ -63,6 +61,17 @@ class SearchController extends Controller
         if ($query_image) {
             $img_url = $query_image['img_url'];
             $query_image['img_url'] = $this->url . "/animal_img/species_img/" . $img_url;
+            return $query_image['img_url'];
+        } else
+            return null;
+    }
+
+    private function getBreedImageUrl(AnimalBreed $animalBreed)
+    {
+        $query_image = $animalBreed->breedImages()->first();
+        if ($query_image) {
+            $img_url = $query_image['img_url'];
+            $query_image['img_url'] = $this->url . "/animal_img/breeds_img/" . $img_url;
             return $query_image['img_url'];
         } else
             return null;

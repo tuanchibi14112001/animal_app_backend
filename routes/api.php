@@ -42,7 +42,7 @@ Route::prefix('animal_specie')->group(function () {
 
 Route::prefix('animal_breed')->group(function () {
     Route::get('/', [AnimalBreedsController::class, 'getAll']);
-    Route::get('/{id}', [AnimalBreedsController::class, 'getAnimalById']);
+    Route::get('/{id}', [AnimalBreedsController::class, 'getAnimalById'])->middleware('auth:sanctum');
 });
 
 Route::prefix('play')->group(function () {
@@ -59,6 +59,11 @@ Route::middleware('auth:sanctum')->prefix('user')->group(function () {
     Route::get('/gallery-detail', [UserController::class, 'getGallerybyFamilyName']);
     Route::post('/gallery-delete', [UserController::class, 'deleteImage']);
     Route::post('/gallery-upload', [UserController::class, 'storeImage']);
+
+    Route::get('/favourite', [UserController::class, 'getFavourite']);
+    Route::post('/favourite-like', [UserController::class, 'postLikeBreed']);
+    Route::post('/favourite-unlike', [UserController::class, 'postUnLikeBreed']);
+
 
 });
 

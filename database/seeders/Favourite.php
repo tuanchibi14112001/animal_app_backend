@@ -38,6 +38,10 @@ class Favourite extends Seeder
                 'user_id' => 1,
                 'animal_breed_id' => 9
             ],
+            [
+                'user_id' => 2,
+                'animal_breed_id' => 1
+            ],
         ]);
     }
 }

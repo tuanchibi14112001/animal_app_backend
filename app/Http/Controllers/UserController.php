@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Models\AnimalBreed;
+use App\Models\Favourite;
 use App\Models\Gallery;
 use App\Utilities\Constant;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+
+use function PHPUnit\Framework\isNull;
 
 class UserController extends Controller
 {
@@ -182,6 +186,88 @@ class UserController extends Controller
         return response()->json([
             'status' => false,
             'result' => "Error deleting image",
+        ], 200);
+    }
+
+
+    private function getBreedImageUrl(AnimalBreed $animalBreed)
+    {
+        $query_image = $animalBreed->breedImages()->first();
+        if ($query_image) {
+            $img_url = $query_image['img_url'];
+            $query_image['img_url'] = $this->url . "/animal_img/breeds_img/" . $img_url;
+            return $query_image['img_url'];
+        } else
+            return null;
+    }
+
+    public function getFavourite(Request $request)
+    {
+        $user = $request->user();
+        $result = $user->favouriteBreed()->get();
+        data_forget($result, '*.pivot');
+        foreach ($result as $breed) {
+            $breed['img_url'] = $this->getBreedImageUrl($breed);
+        }
+        return $result;
+    }
+
+    public function postLikeBreed(Request $request)
+    {
+        $user_id = $request->user()->id;
+        $animal_breed_id = $request->animal_breed_id;
+
+        $animal_breed = AnimalBreed::find($animal_breed_id);
+        if (!$animal_breed) {
+            return response()->json([
+                'status' => false,
+                'result' => "Invalid",
+            ], 200);
+        }
+
+        if (Favourite::where('user_id', $user_id)->where('animal_breed_id', $animal_breed_id)->first() != null) {
+            return response()->json([
+                'status' => false,
+                'result' => "Already exist",
+            ], 200);
+        }
+
+        $item = new Favourite;
+        $item->user_id = $user_id;
+        $item->animal_breed_id = $animal_breed_id;
+        $result = $item->save();
+        if ($result) {
+            return response()->json([
+                'status' => true,
+                'result' => "Bookmark added successfully",
+            ], 200);
+        }
+
+        return response()->json([
+            'status' => true,
+            'result' => "Error adding bookmark",
+        ], 200);
+    }
+
+    public function postUnLikeBreed(Request $request)
+    {
+        $user_id = $request->user()->id;
+        $animal_breed_id = $request->animal_breed_id;
+
+        $item =  Favourite::where('user_id', $user_id)->where('animal_breed_id', $animal_breed_id)->first();
+        if ($item) {
+            $result = $item->delete();
+            if ($result) {
+                return response()->json([
+                    'status' => true,
+                    'result' => "Bookmark removed successfully",
+                ], 200);
+            }
+        }
+
+        return response()->json([
+            'status' => false,
+            'result' => "Error removing bookmark",
         ], 200);
     }
 }

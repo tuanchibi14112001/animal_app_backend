@@ -30,6 +30,12 @@ class AnimalBreedsController extends Controller
     {
         $query =  AnimalBreed::find($request->id);
         $query['img_url'] = $this->getBreedImageUrl($query);
+        if ($request->user()) {
+            $userFavouriteList = $request->user()->favouriteBreed()->pluck('animal_breed_id')->toArray();
+            $query['is_liked'] = in_array($query['id'], $userFavouriteList);
+        } else {
+            $query['is_liked'] = false;
+        }
         return $query;
     }
 }

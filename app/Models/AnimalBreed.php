@@ -20,4 +20,8 @@ class AnimalBreed extends Model
     public function breedImages(){
         return $this->hasMany(BreedImage::class, 'animal_breed_id', 'id');
     }
+
+    public function likedUsers(){
+        return $this->belongsToMany(User::class, 'favourite', 'animal_breed_id', 'user_id');
+    }
 }

@@ -46,4 +46,8 @@ class User extends Authenticatable
     public function gallery(){
         return $this->hasMany(Gallery::class, 'user_id', 'id');
     }
+
+    public function favouriteBreed(){
+        return $this->belongsToMany(AnimalBreed::class, 'favourite', 'user_id','animal_breed_id');
+    }
 }
