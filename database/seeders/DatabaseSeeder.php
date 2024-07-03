@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             SpeciesVideo::class,
             SpeciesImage::class,
             BreedImage::class,
+            Favourite::class,
         ]);
     }
 }
