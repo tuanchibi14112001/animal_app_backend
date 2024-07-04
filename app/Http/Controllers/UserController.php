@@ -244,7 +244,7 @@ class UserController extends Controller
         }
 
         return response()->json([
-            'status' => true,
+            'status' => false,
             'result' => "Error adding bookmark",
         ], 200);
     }
