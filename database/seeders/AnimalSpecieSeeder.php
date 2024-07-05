@@ -55,9 +55,19 @@ class AnimalSpecieSeeder extends Seeder
                 'desc' => 'Crabs are decapod crustaceans of the infraorder Brachyura, which typically have a very short projecting "tail" (abdomen), usually hidden entirely under the thorax (brachyura means "short tail" in Greek)',
             ],
             [
-                'animal_type_id' => 6,
-                'name' => 'Crabs',
-                'desc' => 'Crabs are decapod crustaceans of the infraorder Brachyura, which typically have a very short projecting "tail" (abdomen), usually hidden entirely under the thorax (brachyura means "short tail" in Greek)',
+                'animal_type_id' => 1,
+                'name' => 'Leopard',
+                'desc' => 'The leopard (Panthera pardus) is one of the five extant species in the genus Panthera. It has a pale yellowish to dark golden fur with dark spots grouped in rosettes.',
+            ],
+            [
+                'animal_type_id' => 1,
+                'name' => 'Lion',
+                'desc' => 'Lion (Panthera leo) is a species. It belongs to the family Felidae (the cat family) and is one of the big cat species within the genus Panthera. Other members of this genus include the tiger (Panthera tigris), leopard (Panthera pardus), and jaguar (Panthera onca).',
+            ],
+            [
+                'animal_type_id' => 1,
+                'name' => 'Tiger',
+                'desc' => 'The tiger (Panthera tigris) is a member of the genus Panthera and the largest living cat species native to Asia. It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes.',
             ],
         ]);
     }

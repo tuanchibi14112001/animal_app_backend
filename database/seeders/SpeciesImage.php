@@ -46,6 +46,18 @@ class SpeciesImage extends Seeder
                 'animal_specie_id' => 8,
                 'img_url' => '8.jpg'
             ],
+            [
+                'animal_specie_id' => 9,
+                'img_url' => '9.jpg'
+            ],
+            [
+                'animal_specie_id' => 10,
+                'img_url' => '10.jpg'
+            ],
+            [
+                'animal_specie_id' => 11,
+                'img_url' => '11.jpg'
+            ],
         ]);
     }
 }
