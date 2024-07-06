@@ -31,8 +31,8 @@ class AnimalSpecieSeeder extends Seeder
             ],
             [
                 'animal_type_id' => 2,
-                'name' => 'Ducks',
-                'desc' => 'Ducks are a group of species of water birds - relatively small in size and with shorter necks than their close cousins of swans and geese',
+                'name' => 'Duck',
+                'desc' => 'Duck are a group of species of water birds - relatively small in size and with shorter necks than their close cousins of swans and geese',
             ],
             [
                 'animal_type_id' => 3,
@@ -68,6 +68,36 @@ class AnimalSpecieSeeder extends Seeder
                 'animal_type_id' => 1,
                 'name' => 'Tiger',
                 'desc' => 'The tiger (Panthera tigris) is a member of the genus Panthera and the largest living cat species native to Asia. It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes.',
+            ],
+            [
+                'animal_type_id' => 1, 
+                'name' => 'Wolf',
+                'desc' => "The wolf (Canis lupus), also known as the gray wolf or grey wolf, is a large canine native to Eurasia and North America. The wolf's fur is usually mottled white, brown, gray, and black, although subspecies in the arctic region may be nearly all white.",
+            ],
+            [
+                'animal_type_id' => 1, 
+                'name' => 'Raccoon',
+                'desc' => "The raccoon (Procyon lotor), also spelled racoon and sometimes called the common raccoon or northern raccoon to distinguish it from the other species, is a mammal native to North America.",
+            ],
+            [
+                'animal_type_id' => 1, 
+                'name' => 'Pig',
+                'desc' => "The domestic pig is scientifically known as Sus scrofa domesticus. It is a subspecies of the wild boar (Sus scrofa). Therefore, domestic pigs and wild boars are part of the same species, but domestic pigs are specifically bred and raised by humans.",
+            ],
+            [
+                'animal_type_id' => 2,
+                'name' => 'Goose',
+                'desc' => 'A goose (pl.: geese) is a bird of any of several waterfowl species in the family Anatidae. This group comprises the genera Anser (grey geese and white geese) and Branta (black geese).',
+            ],
+            [
+                'animal_type_id' => 2,
+                'name' => 'Eagle',
+                'desc' => 'Eagle is the common name for the golden eagle, bald eagle, and other birds of prey in the family Accipitridae. Most of the 68 species of eagles are from Eurasia and Africa.',
+            ],
+            [
+                'animal_type_id' => 2,
+                'name' => 'Parrot',
+                'desc' => 'Parrots are highly intelligent birds known for their vibrant plumage and ability to mimic human speech and other sounds. They belong to the order Psittaciformes and are found in tropical and subtropical regions around the world.',
             ],
         ]);
     }
