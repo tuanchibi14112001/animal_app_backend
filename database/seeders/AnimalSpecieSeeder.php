@@ -70,17 +70,17 @@ class AnimalSpecieSeeder extends Seeder
                 'desc' => 'The tiger (Panthera tigris) is a member of the genus Panthera and the largest living cat species native to Asia. It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes.',
             ],
             [
-                'animal_type_id' => 1, 
+                'animal_type_id' => 1,
                 'name' => 'Wolf',
                 'desc' => "The wolf (Canis lupus), also known as the gray wolf or grey wolf, is a large canine native to Eurasia and North America. The wolf's fur is usually mottled white, brown, gray, and black, although subspecies in the arctic region may be nearly all white.",
             ],
             [
-                'animal_type_id' => 1, 
+                'animal_type_id' => 1,
                 'name' => 'Raccoon',
                 'desc' => "The raccoon (Procyon lotor), also spelled racoon and sometimes called the common raccoon or northern raccoon to distinguish it from the other species, is a mammal native to North America.",
             ],
             [
-                'animal_type_id' => 1, 
+                'animal_type_id' => 1,
                 'name' => 'Pig',
                 'desc' => "The domestic pig is scientifically known as Sus scrofa domesticus. It is a subspecies of the wild boar (Sus scrofa). Therefore, domestic pigs and wild boars are part of the same species, but domestic pigs are specifically bred and raised by humans.",
             ],
@@ -98,6 +98,31 @@ class AnimalSpecieSeeder extends Seeder
                 'animal_type_id' => 2,
                 'name' => 'Parrot',
                 'desc' => 'Parrots are highly intelligent birds known for their vibrant plumage and ability to mimic human speech and other sounds. They belong to the order Psittaciformes and are found in tropical and subtropical regions around the world.',
+            ],
+            [
+                'animal_type_id' => 2,
+                'name' => 'Crow',
+                'desc' => 'Crow are highly intelligent, adaptable birds belonging to the Corvidae family. Known for their glossy black plumage and raucous calls, they thrive in a variety of habitats worldwide, from forests to urban areas.',
+            ],
+            [
+                'animal_type_id' => 2,
+                'name' => 'Hornbill',
+                'desc' => 'Hornbill are birds found in tropical and subtropical Africa, Asia and Melanesia of the family Bucerotidae. They are characterized by a long, down-curved bill which is frequently brightly coloured and sometimes has a horny casque on the upper mandible.',
+            ],
+            [
+                'animal_type_id' => 2,
+                'name' => 'Penguin',
+                'desc' => 'Penguins are a group of aquatic flightless birds from the family Spheniscidae of the order Sphenisciformes. They live almost exclusively in the Southern Hemisphere.',
+            ],
+            [
+                'animal_type_id' => 2,
+                'name' => 'Pigeon',
+                'desc' => "The domestic pigeon (Columba livia f. domestica) was derived from the Rock Pigeon. The Rock pigeon is the world's oldest domesticated bird. Mesopotamian cuneiform tablets mention the domestication of pigeons more than 5,000 years ago, as do Egyptian hieroglyphics." ,
+            ],
+            [
+                'animal_type_id' => 2,
+                'name' => 'Swan',
+                'desc' => "Swans are birds of the genus Cygnus within the family Anatidae. Swans are the largest extant members of the waterfowl family Anatidae and are among the largest flying birds." ,
             ],
         ]);
     }
