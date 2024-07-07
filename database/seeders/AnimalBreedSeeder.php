@@ -165,9 +165,88 @@ class AnimalBreedSeeder extends Seeder
                 'name' => 'King crabs',
                 'animal_length' => '13 - 25.3 cm ',
                 'animal_tail' => '9.8 - 16.4 cm',
-                'animal_weight' => ' 10.9 - 12.7 kg kg ',
+                'animal_weight' => ' 10.9 - 12.7 kg',
                 'average_lifespan' => '20 - 30 years',
                 'comments' => 'Males grow faster and larger than females. Female red king crabs reproduce once a year and release between 50,000 and 500,000 eggs.',
+            ],
+
+            [
+                'animal_specie_id' => 17,
+                'name' => 'Scarlet Macaw',
+                'animal_length' => '81 - 96 cm',
+                'animal_tail' => '31 - 36 cm',
+                'animal_weight' => '0.9 - 1.5 kg',
+                'average_lifespan' => '40 - 50 years',
+                'comments' => 'Scarlet Macaws are known for their vibrant plumage and strong beaks. They are highly social and can mimic human speech. They lay 2-4 eggs per clutch and the incubation period is about 24-26 days.',
+            ],
+
+            [
+                'animal_specie_id' => 17,
+                'name' => 'Sun Conure',
+                'animal_length' => '30 cm',
+                'animal_tail' => '12 - 15 cm',
+                'animal_weight' => '110 - 120 g',
+                'average_lifespan' => '20 - 30 years',
+                'comments' => 'Sun Conures are known for their bright yellow, orange, and green plumage. They are very social and can be quite loud. They typically lay 3-5 eggs per clutch, with an incubation period of about 23-27 days.',
+            ],
+
+            [
+                'animal_specie_id' => 21,
+                'name' => 'Ice Pigeon',
+                'animal_length' => '32 - 37 cm',
+                'animal_tail' => '10 - 12 cm',
+                'animal_weight' => '250 - 300 g',
+                'average_lifespan' => '5 - 10 years',
+                'comments' => 'Ice Pigeons are known for their distinctive white or pale plumage with dark wing markings. They are a domesticated breed that originated in Germany and are popular among pigeon fanciers for their unique appearance and calm temperament.',
+            ],
+
+            [
+                'animal_specie_id' => 21,
+                'name' => 'Oriental Roller',
+                'animal_length' => '30 - 34 cm',
+                'animal_tail' => '10 - 12 cm',
+                'animal_weight' => '200 - 300 g',
+                'average_lifespan' => '5 - 10 years',
+                'comments' => 'Oriental Rollers are a breed of domesticated pigeon known for their acrobatic flight patterns, which include rolling and tumbling in the air. They are popular in pigeon flying competitions and are valued for their unique flying abilities and varied plumage colors.',
+            ],
+
+            [
+                'animal_specie_id' => 25,
+                'name' => 'Dwarf Seahorse',
+                'animal_length' => '2.5 - 3.5 cm',
+                'animal_tail' => 'N/A',
+                'animal_weight' => 'Less than 1 g',
+                'average_lifespan' => '1 - 2 years',
+                'comments' => 'Dwarf seahorses are one of the smallest seahorse species, found in shallow waters and seagrass beds in the Gulf of Mexico, the Caribbean, and parts of South America. They are known for their tiny size, slow movement, and ability to anchor themselves to seagrass using their prehensile tails. Dwarf seahorses are often kept in home aquariums due to their diminutive size and interesting behaviors.',
+            ],
+            [
+                'animal_specie_id' => 25,
+                'name' => 'Spiny Seahorse',
+                'animal_length' => '12 - 18 cm',
+                'animal_tail' => 'N/A',
+                'animal_weight' => '10 - 30 g',
+                'average_lifespan' => '3 - 5 years',
+                'comments' => 'Spiny seahorses are characterized by their spiny appearance and can be found in coastal waters throughout the Mediterranean Sea and parts of the Atlantic Ocean. They have a distinctive upright posture and are capable of changing color to blend in with their surroundings. Spiny seahorses are threatened by habitat loss and are protected under various conservation measures.',
+            ],
+
+            [
+                'animal_specie_id' => 24,
+                'name' => 'Black Moor',
+                'animal_length' => '12 - 15 cm',
+                'animal_tail' => '5 - 6 cm',
+                'animal_weight' => '25 - 50 g',
+                'average_lifespan' => '10 - 15 years',
+                'comments' => 'Black Moor goldfish are a variety of fancy goldfish known for their distinctive deep-black coloration and protruding eyes. They are popular in aquariums due to their unique appearance and calm temperament. Black Moors are omnivorous and require a well-maintained tank with adequate filtration and a varied diet.',
+            ],
+
+            [
+                'animal_specie_id' => 24,
+                'name' => 'Bubble Eye',
+                'animal_length' => '12 - 18 cm',
+                'animal_tail' => '7 - 10 cm',
+                'animal_weight' => '20 - 30 g',
+                'average_lifespan' => '10 - 15 years',
+                'comments' => 'Bubble Eye goldfish are known for their unique characteristic of having large fluid-filled sacs under their eyes. These sacs are delicate and can be easily damaged, so care must be taken to ensure they are kept in a safe environment. Bubble Eyes are peaceful and should be housed with other gentle fish to avoid injuries.',
             ],
         ]);
     }
