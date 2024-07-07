@@ -114,7 +114,38 @@ class BreedImage extends Seeder
                 'animal_breed_id' => 25,
                 'img_url' => '25.jpg'
             ],
-        
+            [
+                'animal_breed_id' => 26,
+                'img_url' => '26.jpg'
+            ],
+            [
+                'animal_breed_id' => 27,
+                'img_url' => '27.jpg'
+            ],
+            [
+                'animal_breed_id' => 28,
+                'img_url' => '28.jpg'
+            ],
+            [
+                'animal_breed_id' => 29,
+                'img_url' => '29.jpg'
+            ],
+            [
+                'animal_breed_id' => 30,
+                'img_url' => '30.jpg'
+            ],
+            [
+                'animal_breed_id' => 31,
+                'img_url' => '31.jpg'
+            ],
+            [
+                'animal_breed_id' => 32,
+                'img_url' => '32.jpg'
+            ],
+            [
+                'animal_breed_id' => 33,
+                'img_url' => '33.jpg'
+            ],
         ]);
     }
 }

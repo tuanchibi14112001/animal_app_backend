@@ -134,7 +134,7 @@ class AnimalBreedSeeder extends Seeder
                 'comments' => 'Freshwater crocodiles are a protected species and play an important role in balancing the ecosystem',
             ],
             [
-                'animal_specie_id' => 7,
+                'animal_specie_id' => 33,
                 'name' => 'Iberian midwife toad',
                 'animal_length' => '  40 mm ',
                 'animal_tail' => '5 - 8.3 cm',
@@ -248,6 +248,83 @@ class AnimalBreedSeeder extends Seeder
                 'average_lifespan' => '10 - 15 years',
                 'comments' => 'Bubble Eye goldfish are known for their unique characteristic of having large fluid-filled sacs under their eyes. These sacs are delicate and can be easily damaged, so care must be taken to ensure they are kept in a safe environment. Bubble Eyes are peaceful and should be housed with other gentle fish to avoid injuries.',
             ],
+            
+            [
+                'animal_specie_id' => 30,
+                'name' => 'Hawksbill Turtle',
+                'animal_length' => '70 - 90 cm',
+                'animal_tail' => '10 - 20 cm',
+                'animal_weight' => '40 - 60 kg',
+                'average_lifespan' => '30 - 50 years',
+                'comments' => 'Hawksbill turtles are critically endangered sea turtles known for their distinctive hawk-like beak and beautifully patterned shell. They are primarily found in tropical coral reefs and feed mainly on sponges.',
+            ],
+            [
+                'animal_specie_id' => 30,
+                'name' => 'Painted Turtle',
+                'animal_length' => '10 - 25 cm',
+                'animal_tail' => '6 - 10 cm',
+                'animal_weight' => '300 - 500 g',
+                'average_lifespan' => '20 - 30 years',
+                'comments' => 'Painted turtles are known for their colorful markings on their shell, legs, and head. They are commonly found in slow-moving freshwaters such as ponds, lakes, and marshes across North America. Painted turtles are omnivorous, feeding on aquatic vegetation, small fish, and insects. They are popular as pets due to their hardiness and attractive appearance.',
+            ],
+
+            [
+                'animal_specie_id' => 32,
+                'name' => 'Milk Snake',
+                'animal_length' => '60 - 132 cm',
+                'animal_tail' => '10 - 15 cm',
+                'animal_weight' => '200 - 600 g',
+                'average_lifespan' => '15 - 20 years',
+                'comments' => 'Milk snakes are a species of kingsnake known for their distinctive banded coloration, which often mimics the pattern of the venomous coral snake as a form of Batesian mimicry. They are found in a variety of habitats across North and Central America.',
+            ],
+            [
+                'animal_specie_id' => 32,
+                'name' => 'Corn Snake',
+                'animal_length' => '61 - 182 cm',
+                'animal_tail' => '12 - 18 cm',
+                'animal_weight' => '250 - 700 g',
+                'average_lifespan' => '15 - 20 years',
+                'comments' => 'Corn snakes are a popular species of rat snake known for their docile nature and attractive coloration, which can vary widely among individuals. They are native to the southeastern United States and are commonly found in overgrown fields, forests, and farm areas.',
+            ],
+
+            [
+                'animal_specie_id' => 7,
+                'name' => 'Wood Frog',
+                'animal_length' => '3.5 - 7.6 cm',
+                'animal_tail' => 'N/A',
+                'animal_weight' => '5 - 14 g',
+                'average_lifespan' => '3 - 5 years',
+                'comments' => 'Wood frogs are forest-dwelling organisms that breed primarily in ephemeral, freshwater wetlands: woodland vernal pools. They are nonarboreal and spend most of their time of the forest floor.',
+            ],
+            [
+                'animal_specie_id' => 33,
+                'name' => 'Burrowing Toad',
+                'animal_length' => '6 - 9 cm',
+                'animal_tail' => 'N/A',
+                'animal_weight' => '30 - 50 g',
+                'average_lifespan' => '5 - 10 years',
+                'comments' => 'The Mexican burrowing toad has a unique appearance that makes it easy to distinguish from other organisms. This species body is flat with a width and length that are almost equal.',
+            ],
+
+            [
+                'animal_specie_id' => 38,
+                'name' => 'Wolf Spider',
+                'animal_length' => '1 - 3 cm',
+                'animal_tail' => 'N/A',
+                'animal_weight' => '0.5 - 2 g',
+                'average_lifespan' => '1 - 2 years',
+                'comments' => 'Wolf spiders are known for their excellent hunting skills and keen eyesight. They do not spin webs to catch prey but rather chase and pounce on insects and other small animals. Found in various habitats around the world, these spiders are solitary and often roam alone. Female wolf spiders carry their egg sacs attached to their spinnerets and later carry their spiderlings on their backs until they are ready to disperse.',
+            ],
+            [
+                'animal_specie_id' => 38,
+                'name' => 'Redback Spider',
+                'animal_length' => '1 - 1.5 cm',
+                'animal_tail' => 'N/A',
+                'animal_weight' => '0.1 - 0.5 g',
+                'average_lifespan' => '1 - 3 years',
+                'comments' => 'Redback spiders are venomous arachnids known for the distinctive red stripe on their abdomen. They are native to Australia but have spread to other parts of the world. These spiders build messy, tangled webs and are often found in sheltered locations such as sheds, garages, and under rocks.',
+            ],
+
         ]);
     }
 }
