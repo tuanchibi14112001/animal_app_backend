@@ -102,6 +102,79 @@ class SpeciesImage extends Seeder
                 'animal_specie_id' => 22,
                 'img_url' => '22.jpg'
             ],
+            [
+                'animal_specie_id' => 23,
+                'img_url' => '23.jpg'
+            ],
+            [
+                'animal_specie_id' => 24,
+                'img_url' => '24.jpg'
+            ],
+            [
+                'animal_specie_id' => 25,
+                'img_url' => '25.jpg'
+            ],
+            [
+                'animal_specie_id' => 26,
+                'img_url' => '26.jpg'
+            ],
+            [
+                'animal_specie_id' => 27,
+                'img_url' => '27.jpg'
+            ],
+            [
+                'animal_specie_id' => 28,
+                'img_url' => '28.jpg'
+            ],
+
+            [
+                'animal_specie_id' => 29,
+                'img_url' => '29.jpg'
+            ],
+            [
+                'animal_specie_id' => 30,
+                'img_url' => '30.jpg'
+            ],
+            [
+                'animal_specie_id' => 31,
+                'img_url' => '31.jpg'
+            ],
+            [
+                'animal_specie_id' => 32,
+                'img_url' => '32.jpg'
+            ],
+            [
+                'animal_specie_id' => 33,
+                'img_url' => '33.jpg'
+            ],
+            [
+                'animal_specie_id' => 34,
+                'img_url' => '34.jpg'
+            ],
+            [
+                'animal_specie_id' => 35,
+                'img_url' => '35.jpg'
+            ],
+            [
+                'animal_specie_id' => 36,
+                'img_url' => '36.jpg'
+            ],
+            [
+                'animal_specie_id' => 37,
+                'img_url' => '37.jpg'
+            ],
+            [
+                'animal_specie_id' => 38,
+                'img_url' => '38.jpg'
+            ],
+            [
+                'animal_specie_id' => 39,
+                'img_url' => '39.jpg'
+            ],
+            [
+                'animal_specie_id' => 40,
+                'img_url' => '40.jpg'
+            ],
         ]);
     }
 }
